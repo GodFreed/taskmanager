@@ -111,3 +111,6 @@ select {
     padding: 10px 15px;
 }
 
+button, input, optgroup, select, textarea {
+    color: black;
+}

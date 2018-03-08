@@ -9,14 +9,20 @@ if(isset($_COOKIE['PHPSESSID'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Задачник</title>
+    <!-- bootstrap.min.css -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/style.css">
 	<!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Bootstrap.min.js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- Fort Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
+
+<!-- Навигация -->
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -30,14 +36,16 @@ if(isset($_COOKIE['PHPSESSID'])) {
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 			    <li><a href="/tasks/create">Создать задачу</a></li>
-                <? require_once "applications/includes/nav.php"; ?>
+                <? require_once "applications/components/nav.php"; ?>
 			</ul>
 		</div>
 	</div>
 </div>
+
 <?//поключение контента в шаблон
 require_once "applications/views/".$content_view; 
 ?>
+
 <div class="navbar-bottom row-fluid footer">
     <div class="navbar-inner">
         <div class="container text-center">
@@ -45,5 +53,6 @@ require_once "applications/views/".$content_view;
         </div>
     </div>
 </div>
+
 </body>
 </html>

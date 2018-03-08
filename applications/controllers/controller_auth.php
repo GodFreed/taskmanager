@@ -26,7 +26,7 @@ class ControllerAuth extends Controller
                 exit;
             }
 			
-            //создание отчёта об ошибках, запятая в конце строки выступает разделителем в applications/includes/error_message.php
+            //создание отчёта об ошибках, запятая в конце строки выступает разделителем в applications/components/error_message.php
             setcookie('errors', 'Такого пользователя не существует,', time() + 1);
 			//в случае неудачи перезагрузить страницу с отображённым оповещением
             header("Location: http://{$_SERVER["HTTP_HOST"]}/auth/login");
@@ -37,6 +37,6 @@ class ControllerAuth extends Controller
 	}
     
     public function actionLogout() {
-		require_once "applications/includes/logout.php";
+		require_once "applications/components/logout.php";
 	}
 }

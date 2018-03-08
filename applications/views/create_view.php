@@ -1,6 +1,6 @@
 <?//если есть ошибки ввода то подключаем файл который их выведет
 if(isset($_COOKIE['errors']))
-    require_once "applications/includes/error_message.php";
+    require_once "applications/components/error_message.php";
 ?>
 <br><br>
 <div class="container create-task">
@@ -30,11 +30,11 @@ if(isset($_COOKIE['errors']))
             </div>
         </div>
         <div class="col-md-6 button">
-            <input type="submit" value="Отправить" class="btn btn-success">
+            <input type="submit" value="Отправить" class="btn btn-danger">
         </div>
 	</form>
 	<div class="col-md-6 text-right button">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-overview" id="previousView">Предварительный просмотр</button>
+        <button class="btn btn-danger" data-toggle="modal" data-target="#modal-overview" id="previousView">Предварительный просмотр</button>
      </div>
 </div>
 
@@ -61,4 +61,4 @@ if(isset($_COOKIE['errors']))
 </div>
 
 <!--скрипт для работы модального окна-->
-<script src="/applications/includes/modal_window.js"></script>
+<script src="/applications/components/modal_window.js"></script>

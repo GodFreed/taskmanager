@@ -33,12 +33,13 @@ foreach($data as $row) {
             "<td>".$row["description"]."</td>".
             "<td>".$row["status"]."<br><br>".
             "<a class='btn btn-default' href='tasks/overview/".$row["id_task"]."'>Просмотр</a>";
-            if($_SESSION['admin'] == true) {//добавляем возможность удаления и изменения задачи для администратора
+    
+            if($_SESSION['admin'] == true) {//добавить возможность удаления и изменения задачи для администратора
             echo "<br><br>".
-            "<a class='btn btn-danger' href='tasks/delete/".$row["id_task"]."'>Удалить</a>".
-            "<br><br>".
-            "<a class='btn btn-success' href='tasks/edit/".$row["id_task"]."'>Изменить</a>";
+            "<a class='btn btn-default' href='tasks/delete/".$row["id_task"]."'><i class='fa fa-trash-o fa-lg' title='Удалить'></i></a> ".
+            "<a class='btn btn-default'href='tasks/edit/".$row["id_task"]."'><i class='fa fa-edit fa-lg' title='Редактировать'</i></a>";
             }
+    
    echo "</td>".
       "</tr>";
 }
@@ -47,8 +48,19 @@ foreach($data as $row) {
 	</table>
 </div>
 <script>
-//запуск функции сортировки для скрипта jquery.tablesorter
+
 $(document).ready(function() {
+    //вывод предупреждения перед удалением
+    $('a > i[class="fa fa-trash-o fa-lg"]').on('click', function(e) {
+        if(confirm('Удалить задачу?')) {
+            return true;
+        } else {
+            e.preventDefault();
+            return false;
+        }
+    });
+    
+    //запуск функции сортировки для скрипта jquery.tablesorter
     $('.table').tablesorter();
 });
 </script>
