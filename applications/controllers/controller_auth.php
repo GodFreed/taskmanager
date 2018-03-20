@@ -1,12 +1,6 @@
 <?
 class ControllerAuth extends Controller
 {
-    public function __construct() {
-		$this->view = new View();
-		//создание объекта для работы с БД, подключённой в route.php модели
-		$this->model = new ModelAuth();
-	}
-    
 	public function actionLogin() {
 		//проверка были ли отправлены данные, иначе множественные редиректы
         if(isset($_POST['login']) && isset($_POST['password'])) {

@@ -1,12 +1,6 @@
 <?
 class ControllerTasks extends Controller
 {
-    public function __construct() {
-		$this->view = new View();
-		//создание объекта для работы с БД, подключённой в route.php модели
-		$this->model = new ModelTasks();
-	}
-    
     public function actionShow() {
 		$data = $this->model->getTasks();
 		$this->view->generateView("template_view.php", "tasks_view.php", $data);

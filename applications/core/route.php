@@ -44,10 +44,15 @@ class Route
 			require_once $modelPath;
 		}
         
-		$controller = new $controllerName();
+        if(class_exists($modelName)) {
+            $controller = new $controllerName($modelName);
+        } else {
+            $controller = new $controllerName();
+        }
 		
+        //передать идетификатор для роута вида: domain/class/action/id
 		if(method_exists($controller, $actionName)) {
-            if(isset($id)) {//передаём идетификатор если он был
+            if(isset($id)) {
                 $controller->$actionName($id);
             } else {
                 $controller->$actionName();
