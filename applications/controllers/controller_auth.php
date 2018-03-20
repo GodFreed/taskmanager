@@ -27,7 +27,7 @@ class ControllerAuth extends Controller
             exit;
         }
         //если никаких данных для входа ещё не было отправлено, то - отобразить страницу входа
-        $this->view->generateView("template_view.php", "login_view.php");
+        $this->view->generateView("login_view.php", "Авторизация");
 	}
     
     public function actionLogout() {

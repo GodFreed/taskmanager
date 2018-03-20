@@ -44,15 +44,18 @@ class Route
 			require_once $modelPath;
 		}
         
+        //Использовать внедрение зависимости для передачи объета модели в контроллер
         if(class_exists($modelName)) {
-            $controller = new $controllerName($modelName);
+            $model = new $modelName();
+            $controller = new $controllerName($model);
         } else {
             $controller = new $controllerName();
         }
 		
-        //передать идетификатор для роута вида: domain/class/action/id
+        //Вызов action-a
 		if(method_exists($controller, $actionName)) {
             if(isset($id)) {
+                //передать идетификатор для роута вида: domain/class/action/id
                 $controller->$actionName($id);
             } else {
                 $controller->$actionName();

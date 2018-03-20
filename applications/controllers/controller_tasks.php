@@ -3,7 +3,7 @@ class ControllerTasks extends Controller
 {
     public function actionShow() {
 		$data = $this->model->getTasks();
-		$this->view->generateView("template_view.php", "tasks_view.php", $data);
+		$this->view->generateView("tasks_view.php", "Список задач", $data);
 	}
     
 	public function actionDelete($task) {
@@ -29,13 +29,13 @@ class ControllerTasks extends Controller
 			exit;
 		}
        	//отобразить представление для создания новой задачи
-		$this->view->generateView("template_view.php", "create_view.php");
+		$this->view->generateView("create_view.php", "Создание задачи");
 	}
     
     public function actionOverview($task) {
         $taskData = $this->model->getTask($task);
 
-        $this->view->generateView("template_view.php", "overview_view.php", $taskData);
+        $this->view->generateView("overview_view.php", "Просмотр задачи", $taskData);
     }
     
     public function actionEdit($task) {
@@ -45,7 +45,7 @@ class ControllerTasks extends Controller
         if(empty($_POST)) {
 			//данный блок кода отображает представлние редактирования задачи
             $taskData = $this->model->getTask($task);
-            $this->view->generateView("template_view.php", "edit_view.php", $taskData);
+            $this->view->generateView("edit_view.php", "Редактирование задачи", $taskData);
             exit;
         }
 		//данный блок кода вносит изменения в БД
